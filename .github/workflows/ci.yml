@@ -189,6 +189,8 @@ jobs:
           echo "endpoint=http://localhost:8000" >> "$GITHUB_OUTPUT"
 
       - name: Smoke test deployment
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         run: bash scripts/smoke-test.sh http://localhost:8000
 
       - name: Capture logs on failure
