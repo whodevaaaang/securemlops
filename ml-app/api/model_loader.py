@@ -1,4 +1,5 @@
 """Loads the persisted model, training on the fly if no artifact exists."""
+
 from __future__ import annotations
 
 import sys

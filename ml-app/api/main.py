@@ -1,4 +1,5 @@
 """FastAPI service that exposes the sentiment model behind /predict."""
+
 from __future__ import annotations
 
 import os

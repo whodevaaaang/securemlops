@@ -1,4 +1,5 @@
 """Train a small sentiment classifier and persist it as artifacts/model.joblib."""
+
 from __future__ import annotations
 
 from pathlib import Path
