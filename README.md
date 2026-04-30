@@ -100,11 +100,13 @@ Real outputs from a local end-to-end run are committed under [`docs/evidence/`](
 - [`03-deployment-proof.log`](docs/evidence/03-deployment-proof.log) — `docker compose ps (healthy)`, `/health`, `/ready`, positive + negative `/predict` JSON responses, 422 validation, and the smoke-test script
 - [`04-image-info.log`](docs/evidence/04-image-info.log) — image size / digest
 
-GitHub-Actions screenshots to add after the first cloud run (paths already wired into this README):
+GitHub Actions cloud-run screenshots (run [25183862487](https://github.com/whodevaaaang/securemlops/actions/runs/25183862487)):
 
-- `docs/screenshots/pipeline-success.png` — green pipeline graph
-- `docs/screenshots/trivy-clean.png` — Trivy step output
-- `docs/screenshots/deploy-output.png` — deploy job logs
+| Evidence | Screenshot |
+|----------|------------|
+| All 4 jobs green, "No leaks detected" | ![pipeline](docs/screenshots/pipeline-success.png) |
+| Trivy scan — `0` HIGH/CRITICAL on every package | ![trivy](docs/screenshots/trivy-clean.png) |
+| Deploy job — container ran, `/predict` returned `{"label":"positive",...}`, smoke test passed | ![deploy](docs/screenshots/deploy-output.png) |
 
 ## 8. Challenges Faced
 
