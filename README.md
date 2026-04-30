@@ -91,14 +91,20 @@ Bootstrap commands are in the [Setup](#setup) section below.
 | CI/CD | GitHub Actions |
 | Secrets | GitHub Actions Secrets (`API_TOKEN`) |
 
-## 7. Screenshots
+## 7. Screenshots & Evidence
 
-Replace these placeholders with screenshots from your own GitHub Actions run before submission.
+Real outputs from a local end-to-end run are committed under [`docs/evidence/`](docs/evidence/) — these are the deployment proof for the rubric:
 
-- **Pipeline success** — `docs/screenshots/pipeline-success.png`
-- **Trivy scan output** — `docs/screenshots/trivy-clean.png`
-- **Deployment / smoke test output** — `docs/screenshots/deploy-output.png`
-- **/predict response** — `docs/screenshots/predict-response.png`
+- [`01-docker-build.log`](docs/evidence/01-docker-build.log) — `docker compose build` (ends with `Image securemlops/ml-api:local Built`, model trained inside the layer with accuracy 1.0)
+- [`02-docker-up.log`](docs/evidence/02-docker-up.log) — `docker compose up` lifecycle
+- [`03-deployment-proof.log`](docs/evidence/03-deployment-proof.log) — `docker compose ps (healthy)`, `/health`, `/ready`, positive + negative `/predict` JSON responses, 422 validation, and the smoke-test script
+- [`04-image-info.log`](docs/evidence/04-image-info.log) — image size / digest
+
+GitHub-Actions screenshots to add after the first cloud run (paths already wired into this README):
+
+- `docs/screenshots/pipeline-success.png` — green pipeline graph
+- `docs/screenshots/trivy-clean.png` — Trivy step output
+- `docs/screenshots/deploy-output.png` — deploy job logs
 
 ## 8. Challenges Faced
 
