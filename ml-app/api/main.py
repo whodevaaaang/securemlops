@@ -6,7 +6,6 @@ import time
 from pathlib import Path
 from typing import List
 
-import joblib
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 
