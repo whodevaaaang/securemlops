@@ -1,0 +1,10 @@
+title = "SecureMLOps gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test fixtures and sample tokens"
+paths = [
+  '''ml-app/tests/.*''',
+]
