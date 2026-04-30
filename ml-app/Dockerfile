@@ -15,7 +15,10 @@ RUN groupadd --system app && useradd --system --gid app --home /app app
 
 COPY --from=builder /wheels /wheels
 COPY requirements.txt .
-RUN pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
+# Upgrade preinstalled toolchain pkgs (wheel, setuptools, jaraco.context) to drop
+# HIGH/CRITICAL CVEs from the base image, then install app deps offline.
+RUN pip install --no-cache-dir --upgrade pip "wheel>=0.46.3" "setuptools>=78.1.1" "jaraco.context>=6.1.0" \
+    && pip install --no-cache-dir --no-index --find-links=/wheels -r requirements.txt \
     && rm -rf /wheels
 
 COPY api ./api
