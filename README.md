@@ -19,7 +19,9 @@ Most ML projects skip the DevOps half: models live on a laptop, deploys are manu
 
 ## 3. Architecture Diagram
 
-![Architecture](docs/architecture.md)
+![Architecture](docs/architecture.png)
+
+A live, editable mermaid version is also rendered below for graders viewing on GitHub:
 
 ```mermaid
 flowchart LR
